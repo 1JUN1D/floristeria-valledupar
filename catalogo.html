@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+    <meta charset="UTF-8">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPMTFYSXS1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPMTFYSXS1');
+</script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Catálogo de Floristería Leonela TT en Valledupar: 21 diseños entre ramos de rosas, girasoles, cajas cofre, arreglos con globos y chocolates. Domicilio en toda la ciudad.">
+    <meta name="keywords" content="catálogo flores Valledupar, ramos de rosas Valledupar, girasoles Valledupar, cajas de rosas, arreglos con globos, arreglos con chocolates, quince años Valledupar, Floristería Leonela TT">
+    <title>Catálogo de Productos - Floristería Leonela TT | Flores y Arreglos en Valledupar</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Catálogo de Productos - Floristería Leonela TT Valledupar">
+    <meta property="og:description" content="Ramos, cajas de rosas, arreglos con globos y detalles con chocolates, entregados a domicilio en Valledupar">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://floristeriavalledupar.dondeseria.com/catalogo">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/catalog.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo.webp">
+</head>
+<body>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section -->
+    <section class="catalog-hero">
+        <div class="container">
+            <h1>Nuestro Catálogo</h1>
+            <p>Floristería Leonela TT · 21 diseños entre ramos, cajas cofre y arreglos con globos, con domicilio en todos los barrios de Valledupar</p>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="catalog-filters">
+        <div class="container">
+            <div class="catalog-search">
+                <input type="search" id="product-search" placeholder="Buscar por nombre o código (ej. girasol o 014)" aria-label="Buscar producto por nombre o código">
+            </div>
+            <div class="filters-container">
+                <span class="filter-label">Filtrar por:</span>
+                <button class="filter-btn active" data-filter="todos">Todos los Productos</button>
+                <button class="filter-btn" data-filter="rosas-rojas">Rosas Rojas</button>
+                <button class="filter-btn" data-filter="rosas-rosadas">Rosas Rosadas</button>
+                <button class="filter-btn" data-filter="girasoles">Girasoles</button>
+                <button class="filter-btn" data-filter="mix">Ramos Mix</button>
+                <button class="filter-btn" data-filter="chocolates">Con Chocolates</button>
+                <button class="filter-btn" data-filter="cajas">Cajas y Cofres</button>
+                <button class="filter-btn" data-filter="globos">Con Globos</button>
+                <button class="filter-btn" data-filter="quince">15 Años y Cumpleaños</button>
+                <button class="filter-btn" data-filter="precio-bajo">Menos de $100.000</button>
+                <button class="filter-btn" data-filter="precio-medio">$100.000 - $200.000</button>
+                <button class="filter-btn" data-filter="precio-alto">Más de $200.000</button>
+                <button class="filter-btn" data-filter="consultar">Consultar precio</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Counter -->
+    <div class="results-counter">
+        <div class="container">
+            Mostrando <strong id="results-count">21</strong> productos
+        </div>
+    </div>
+
+    <!-- Products Grid -->
+    <section class="catalog-section">
+        <div class="container">
+            <div class="products-grid" id="products-grid">
+                <!-- Los productos se generarán aquí -->
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="empty-state">
+                <h3>No se encontraron productos</h3>
+                <p>Cambia el filtro o escribe otra palabra y te mostramos el resto de los diseños</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightbox-close">×</button>
+            <img src="" alt="" class="lightbox-image" id="lightbox-image">
+            <div class="lightbox-info">
+                <h3 id="lightbox-title"></h3>
+                <p id="lightbox-price"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scroll-top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- WhatsApp Button -->
+    <div id="whatsapp-button-container"></div>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+    <script>
+        // Catálogo de productos - Floristería Leonela TT · Valledupar
+const products = [
+    {
+        id: 1,
+        name: "Rosas Fucsia con Globo Corazón y Chocolates",
+        price: 180000,
+        image: "assets/foto1.webp",
+        description: "Docena de rosas fucsia con nube blanca, envuelta en papel blanco y láminas rosadas estampadas con corazones dorados. Llega con globo corazón metalizado en oro rosa, cofre de bombones en forma de corazón y tarjeta ilustrada. El detalle completo para un aniversario o una reconciliación.",
+        categories: ["rosas-rosadas", "chocolates", "globos", "precio-medio"]
+    },
+    {
+        id: 2,
+        name: "Ramo Clásico de Seis Rosas Rojas",
+        price: 80000,
+        image: "assets/foto2.webp",
+        description: "Seis rosas rojas de tallo largo abiertas sobre un corazón de nube blanca y hojas de ruscus, presentadas en celofán rojo con líneas doradas y lazo de raso. Sencillo, directo y elegante: la forma más clásica de decir «te amo» sin necesidad de una fecha especial.",
+        categories: ["rosas-rojas", "precio-bajo"]
+    },
+    {
+        id: 3,
+        name: "Canasta Vertical de Rosas y Girasol",
+        price: 180000,
+        image: "assets/foto3.webp",
+        description: "Canasta de mimbre montada en altura con rosas fucsia escalonadas, un girasol abierto al centro y follaje verde intenso. Se completa con bombones sobre la base, lazo de raso fucsia, globo corazón «Te Quiero Mucho» y tarjeta con dedicatoria. Un regalo con mucha presencia para mamá.",
+        categories: ["rosas-rosadas", "girasoles", "mix", "chocolates", "globos", "precio-medio"]
+    },
+    {
+        id: 4,
+        name: "Corazón de Rosas Rojas «¿Quieres Ser Mi Novia?»",
+        price: 250000,
+        image: "assets/foto4.webp",
+        description: "Corazón compacto armado con decenas de rosas rojas sobre cajón de madera natural, enmarcado en nube blanca y hoja verde. Corona la pieza un globo burbuja transparente con el mensaje «¿Quieres ser mi novia?». Pensado para una propuesta que nadie va a olvidar.",
+        categories: ["rosas-rojas", "cajas", "globos", "precio-alto"]
+    },
+    {
+        id: 5,
+        name: "Cajón de Rosas Rojas con Globos HBD",
+        price: null,
+        image: "assets/foto5.webp",
+        description: "Cajón de madera rústica sembrado con dos docenas de rosas rojas de tallo largo y follaje verde, con un estuche de Ferrero Rocher escondido entre las flores y lazo rojo al frente. Sobre el arreglo, globos de letras en oro rosa formando «HBD». Un cumpleaños de alto impacto.",
+        categories: ["rosas-rojas", "cajas", "chocolates", "globos", "quince"]
+    },
+    {
+        id: 6,
+        name: "Letra Floral Gigante para Quince Años",
+        price: null,
+        image: "assets/foto6.webp",
+        description: "Letra de gran formato forrada por completo en nube blanca y claveles rosados, montada sobre base de madera y decorada con mariposas y topper de «15». La armamos con la inicial que nos pidas y en el tono que combine con la decoración de la fiesta. Ideal para la mesa principal o la entrada del salón.",
+        categories: ["mix", "rosas-rosadas", "quince"]
+    },
+    {
+        id: 7,
+        name: "Bouquet Blanco con Rosas Fucsia y Mariposa",
+        price: null,
+        image: "assets/foto7.webp",
+        description: "Media docena de rosas fucsia de botón grande sobre un colchón de nube blanca, envueltas en papel blanco satinado con cintas color durazno, lazo fucsia y una mariposa decorativa. Un ramo pulcro y femenino, perfecto para un cumpleaños o un «gracias» que se quiere ver bien.",
+        categories: ["rosas-rosadas"]
+    },
+    {
+        id: 8,
+        name: "Caja Cajonera de Rosas Rojas y Ferrero",
+        price: 200000,
+        image: "assets/foto8.webp",
+        description: "Caja blanca de dos niveles: arriba, un jardín de rosas rojas con follaje verde; abajo, un cajón sorpresa que se desliza con bombones Ferrero Rocher y rosas preservadas. Se entrega con globo burbuja marmolado y lazo rojo. Nuestro diseño insignia y el más pedido para sorpresas.",
+        categories: ["rosas-rojas", "cajas", "chocolates", "globos", "precio-medio"]
+    },
+    {
+        id: 9,
+        name: "Jarrón de Rosas Rojas con Globo Burbuja",
+        price: 160000,
+        image: "assets/foto9.webp",
+        description: "Dos docenas de rosas rojas dispuestas en cúpula con nube blanca y follaje, montadas en un jarrón de cerámica azul cielo con filo dorado. Lo acompaña un globo burbuja marmolado en rojo. Llega listo para poner sobre la mesa, sin necesidad de buscar florero.",
+        categories: ["rosas-rojas", "globos", "precio-medio"]
+    },
+    {
+        id: 10,
+        name: "Sombrerera Roja con Lirios y Fresas Achocolatadas",
+        price: 200000,
+        image: "assets/foto10.webp",
+        description: "Sombrerera roja rematada con lazo blanco y sello dorado, sembrada de rosas blancas, minirrosas y lirios orientales abiertos. Entre las flores asoman fresas bañadas en chocolate de colores y arriba flota un globo burbuja dorado de «Happy Birthday». Dulce, aromático y muy vistoso.",
+        categories: ["cajas", "chocolates", "globos", "quince", "precio-medio"]
+    },
+    {
+        id: 11,
+        name: "Cúpula de Rosas Rojas con Bombones",
+        price: 150000,
+        image: "assets/foto11.webp",
+        description: "Rosas rojas apretadas en forma de domo, salpicadas de nube blanca y bombones Ferrero Rocher, con tarjeta ilustrada al frente. Un arreglo redondo y compacto que se ve enorme en la foto y cabe en cualquier escritorio o mesa de noche.",
+        categories: ["rosas-rojas", "chocolates", "precio-medio"]
+    },
+    {
+        id: 12,
+        name: "Topiario Floral con Vino Espumoso",
+        price: 270000,
+        image: "assets/foto12.webp",
+        description: "Árbol floral montado sobre canasta de mimbre: una esfera de claveles rojos y pompones amarillos sostenida por un tallo de bambú, rodeada de rosas coral, pompones y fresas achocolatadas de colores. Incluye una botella de espumoso rosado. La pieza más celebratoria del catálogo.",
+        categories: ["mix", "chocolates", "precio-alto"]
+    },
+    {
+        id: 13,
+        name: "Bouquet de Rosas Fucsia con Ferrero Rocher",
+        price: 120000,
+        image: "assets/foto13.webp",
+        description: "Seis rosas fucsia de pétalo ancho sobre nube seca en tono champán, envueltas en papel blanco con cintas doradas y rematadas con tres bombones Ferrero Rocher y un lazo de raso fucsia. Del tamaño justo para regalar en la oficina o en una visita.",
+        categories: ["rosas-rosadas", "chocolates", "precio-medio"]
+    },
+    {
+        id: 14,
+        name: "Corazón de Rosas Rojas con Girasol",
+        price: 150000,
+        image: "assets/foto14.webp",
+        description: "Corazón armado con rosas rojas y hojas verdes, con un girasol abierto justo en el centro y tres Ferrero Rocher repartidos entre las flores. La mezcla de rojo intenso y amarillo le da una energía distinta a los arreglos románticos de siempre.",
+        categories: ["rosas-rojas", "girasoles", "chocolates", "precio-medio"]
+    },
+    {
+        id: 15,
+        name: "Arreglo Bicolor de Rosas Rosadas y Blancas",
+        price: null,
+        image: "assets/foto15.webp",
+        description: "Base de mimbre dividida en dos: un costado de rosas rosadas y otro de rosas blancas, todas en botón cerrado y perfectamente alineadas, con follaje verde alrededor y lazo rosado. Lo remata un globo corazón en oro rosa. Delicado, moderno y muy fotogénico.",
+        categories: ["rosas-rosadas", "globos"]
+    },
+    {
+        id: 16,
+        name: "Sombrerera de Quince Años en Rosado",
+        price: 200000,
+        image: "assets/foto16.webp",
+        description: "Sombrerera blanca con lazo fucsia repleta de rosas rosadas y nube en tono champán, coronada por un topper de «15 Años» con corona y globos corazón en oro rosa. Se entrega con tarjeta para la dedicatoria. Pensado para la quinceañera, la mesa de honor o la foto del día.",
+        categories: ["rosas-rosadas", "cajas", "quince", "globos", "precio-medio"]
+    },
+    {
+        id: 17,
+        name: "Girasol Solo en Papel Kraft",
+        price: 40000,
+        image: "assets/foto17.webp",
+        description: "Un girasol abierto acompañado de solidago amarillo, eucalipto y hoja verde, envuelto en papel kraft texturizado con lazo de raso negro. Nuestra opción más económica y una de las que más alegran: perfecta para un «pensé en ti» de un día cualquiera.",
+        categories: ["girasoles", "precio-bajo"]
+    },
+    {
+        id: 18,
+        name: "Ramo Campestre de Girasol y Astromelias",
+        price: 50000,
+        image: "assets/foto18.webp",
+        description: "Girasol central rodeado de astromelias rojas, rosadas y amarillas con follaje verde, envuelto en papel kraft y atado con lazo dorado. Colorido, fresco y de larga duración: las astromelias siguen abriendo botones durante varios días.",
+        categories: ["girasoles", "mix", "precio-bajo"]
+    },
+    {
+        id: 19,
+        name: "Corazón de Nube Rosada con Lirios",
+        price: 180000,
+        image: "assets/foto19.webp",
+        description: "Corazón calado hecho en nube teñida de rosa, con lazo dorado, elevado sobre una base cuadrada llena de lirios rosados, rosas, claveles y mariposas doradas. Una composición aérea y romántica que se sale del formato tradicional de ramo.",
+        categories: ["mix", "rosas-rosadas", "cajas", "precio-medio"]
+    },
+    {
+        id: 20,
+        name: "Ramo Pastel de Gerberas y Claveles",
+        price: 120000,
+        image: "assets/foto20.webp",
+        description: "Gerberas blancas de centro amarillo, claveles durazno, minirrosas y nube blanca sobre follaje verde, envueltos en papel crema con lazo de raso al tono. Suave y luminoso: funciona igual de bien para felicitar, agradecer o acompañar una visita.",
+        categories: ["mix", "precio-medio"]
+    },
+    {
+        id: 21,
+        name: "Ramo de Gerberas Durazno con Globo",
+        price: 70000,
+        image: "assets/foto21.webp",
+        description: "Tres gerberas en tono durazno con astromelias blancas y nube, envueltas en papel crema con un generoso lazo dorado, más un globo corazón dorado de «Feliz Aniversario». Un detalle cálido y de buen precio para celebrar sin exagerar.",
+        categories: ["mix", "globos", "precio-bajo"]
+    }
+];
+
+        // Estado de filtro y búsqueda
+        let currentFilter = 'todos';
+        let searchTerm = '';
+
+        // Código de referencia: 001, 002, 003...
+        function productCode(p) {
+            return String(p.id).padStart(3, '0');
+        }
+
+        // URL absoluta de la foto del producto
+        function productPhotoUrl(p) {
+            return 'http://floristeriavalledupar.dondeseria.com/' + p.image.replace(/^\//, '');
+        }
+
+        // Normaliza texto para búsqueda sin tildes (u0300-u036f = acentos combinantes)
+        function normalizeText(t) {
+            return t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+        }
+
+        // Renderizar productos
+
+        // ===== Orden por precio en columnas =====
+        // Los productos se ordenan de menor a mayor precio y se reparten
+        // por columnas: la 1a columna es la mas economica y la ultima la mas alta.
+        function gridColumnCount(grid) {
+            const t = getComputedStyle(grid).gridTemplateColumns;
+            if (!t || t === 'none') return 1;
+            return t.trim().split(/\s+/).filter(Boolean).length || 1;
+        }
+
+
+
+        function orderByPriceInColumns(list, grid) {
+            const sorted = list.slice().sort(function (a, b) {
+                return priceValue(a) - priceValue(b) || a.id - b.id;
+            });
+            const cols = gridColumnCount(grid);
+            if (cols <= 1 || sorted.length <= cols) return sorted;
+            const base = Math.floor(sorted.length / cols);
+            const rem = sorted.length % cols;
+            const sizes = [], starts = [];
+            let acc = 0;
+            for (let c = 0; c < cols; c++) {
+                sizes.push(base + (c < rem ? 1 : 0));
+                starts.push(acc);
+                acc += sizes[c];
+            }
+            const out = [];
+            for (let r = 0; r < sizes[0]; r++) {
+                for (let c = 0; c < cols; c++) {
+                    if (r < sizes[c]) out.push(sorted[starts[c] + r]);
+                }
+            }
+            return out;
+        }
+
+        function renderProducts() {
+            const filter = currentFilter;
+            const grid = document.getElementById('products-grid');
+            const emptyState = document.getElementById('empty-state');
+            const resultsCount = document.getElementById('results-count');
+
+            let filteredProducts = products;
+
+            if (filter === 'consultar') {
+                filteredProducts = products.filter(product =>
+                    product.price === null || product.price === undefined
+                );
+            } else if (filter !== 'todos') {
+                filteredProducts = products.filter(product =>
+                    product.categories.includes(filter)
+                );
+            }
+
+            // Búsqueda por nombre o código
+            if (searchTerm.trim()) {
+                const q = normalizeText(searchTerm.trim());
+                filteredProducts = filteredProducts.filter(product =>
+                    normalizeText(product.name).includes(q) ||
+                    productCode(product).includes(q)
+                );
+            }
+
+            if (filteredProducts.length === 0) {
+                grid.style.display = 'none';
+                emptyState.classList.add('active');
+                resultsCount.textContent = '0';
+                return;
+            }
+
+            grid.style.display = 'grid';
+            emptyState.classList.remove('active');
+            resultsCount.textContent = filteredProducts.length;
+
+            filteredProducts = orderByPriceInColumns(filteredProducts, grid);
+
+            grid.innerHTML = filteredProducts.map(product => `
+                <div class="product-card" data-categories="${product.categories.join(' ')}">
+                    <div class="product-image-container" onclick="openLightbox('${product.image}', '${product.name}', '${formatPrice(product.price)}')">
+                        <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy">
+                        <div class="zoom-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="m21 21-4.35-4.35"/>
+                                <line x1="11" y1="8" x2="11" y2="14"/>
+                                <line x1="8" y1="11" x2="14" y2="11"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        ${product.oldPrice ? `<div class="product-offer-badge">OFERTA</div>` : ''}
+                        <div class="product-ref">Ref. ${productCode(product)}</div>
+                        <h3 class="product-name">${product.name}</h3>
+                        <div class="product-description"><div class="pd-clamp">${product.description}</div></div>
+                        <div class="product-footer">
+                            <div>
+                                <span class="price-label ${product.oldPrice ? 'price-label-old' : ''}">${product.price === null || product.price === undefined ? 'A la medida' : (product.oldPrice ? formatPrice(product.oldPrice) : 'Desde')}</span>
+                                <div class="product-price">${formatPrice(product.price)}</div>
+                            </div>
+                            <a href="https://wa.me/573004272875?text=${encodeURIComponent('Hola, me interesa el producto: ' + product.name + ' (Ref. ' + productCode(product) + ') - ' + formatPrice(product.price) + ' | Foto: ' + productPhotoUrl(product))}"
+                               class="btn-order"
+                               target="_blank">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                                </svg>
+                                Pedir Ahora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Formatear precio
+        function formatPrice(price) {
+            if (price === null || price === undefined) return 'Consultar precio';
+            return '$' + price.toLocaleString('es-CO');
+        }
+
+        // Valor de orden: los productos sin precio van al final
+        function priceValue(p) {
+            return (p.price === null || p.price === undefined) ? Number.MAX_SAFE_INTEGER : p.price;
+        }
+
+        // Filtros
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentFilter = this.dataset.filter;
+                renderProducts();
+                window.scrollTo({ top: 400, behavior: 'smooth' });
+            });
+        });
+
+        // Buscador por nombre o código
+        document.getElementById('product-search').addEventListener('input', function() {
+            searchTerm = this.value;
+            renderProducts();
+        });
+
+        // Lightbox
+        function openLightbox(image, name, price) {
+            document.getElementById('lightbox-image').src = image;
+            document.getElementById('lightbox-image').alt = name;
+            document.getElementById('lightbox-title').textContent = name;
+            document.getElementById('lightbox-price').textContent = price;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) closeLightbox();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // Botón volver arriba
+        const scrollTopBtn = document.getElementById('scroll-top');
+
+        // Reordena las columnas cuando cambia el ancho de la ventana
+        (function () {
+            let _rzTimer = null;
+            let _rzCols = null;
+            window.addEventListener('resize', function () {
+                clearTimeout(_rzTimer);
+                _rzTimer = setTimeout(function () {
+                    const g = document.getElementById('products-grid');
+                    if (!g || g.style.display === 'none') return;
+                    const c = gridColumnCount(g);
+                    if (c !== _rzCols) { _rzCols = c; renderProducts(); }
+                }, 180);
+            });
+        })();
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 600) scrollTopBtn.classList.add('visible');
+            else scrollTopBtn.classList.remove('visible');
+        });
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Render inicial
+        renderProducts();
+    </script>
+</body>
+</html>

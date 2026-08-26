@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: http://floristeriavalledupar.dondeseria.com/sitemap.xml
