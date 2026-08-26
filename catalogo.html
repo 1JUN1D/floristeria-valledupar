@@ -13,7 +13,7 @@
   gtag('config', 'G-KPMTFYSXS1');
 </script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Catálogo de Floristería Leonela TT en Valledupar: 21 diseños entre ramos de rosas, girasoles, cajas cofre, arreglos con globos y chocolates. Domicilio en toda la ciudad.">
+    <meta name="description" content="Catálogo de Floristería Leonela TT en Valledupar: 24 diseños entre ramos de rosas, girasoles, cajas cofre, arreglos con globos y coronas fúnebres. Domicilio en toda la ciudad.">
     <meta name="keywords" content="catálogo flores Valledupar, ramos de rosas Valledupar, girasoles Valledupar, cajas de rosas, arreglos con globos, arreglos con chocolates, quince años Valledupar, Floristería Leonela TT">
     <title>Catálogo de Productos - Floristería Leonela TT | Flores y Arreglos en Valledupar</title>
 
@@ -43,7 +43,7 @@
     <section class="catalog-hero">
         <div class="container">
             <h1>Nuestro Catálogo</h1>
-            <p>Floristería Leonela TT · 21 diseños entre ramos, cajas cofre y arreglos con globos, con domicilio en todos los barrios de Valledupar</p>
+            <p>Floristería Leonela TT · 24 diseños entre ramos, cajas cofre, arreglos con globos y coronas fúnebres, con domicilio en todos los barrios de Valledupar</p>
         </div>
     </section>
 
@@ -64,10 +64,10 @@
                 <button class="filter-btn" data-filter="cajas">Cajas y Cofres</button>
                 <button class="filter-btn" data-filter="globos">Con Globos</button>
                 <button class="filter-btn" data-filter="quince">15 Años y Cumpleaños</button>
+                <button class="filter-btn" data-filter="funebres">Arreglos Fúnebres</button>
                 <button class="filter-btn" data-filter="precio-bajo">Menos de $100.000</button>
                 <button class="filter-btn" data-filter="precio-medio">$100.000 - $200.000</button>
                 <button class="filter-btn" data-filter="precio-alto">Más de $200.000</button>
-                <button class="filter-btn" data-filter="consultar">Consultar precio</button>
             </div>
         </div>
     </section>
@@ -75,7 +75,7 @@
     <!-- Results Counter -->
     <div class="results-counter">
         <div class="container">
-            Mostrando <strong id="results-count">21</strong> productos
+            Mostrando <strong id="results-count">24</strong> productos
         </div>
     </div>
 
@@ -159,26 +159,26 @@ const products = [
     {
         id: 5,
         name: "Cajón de Rosas Rojas con Globos HBD",
-        price: null,
+        price: 180000,
         image: "assets/foto5.webp",
         description: "Cajón de madera rústica sembrado con dos docenas de rosas rojas de tallo largo y follaje verde, con un estuche de Ferrero Rocher escondido entre las flores y lazo rojo al frente. Sobre el arreglo, globos de letras en oro rosa formando «HBD». Un cumpleaños de alto impacto.",
-        categories: ["rosas-rojas", "cajas", "chocolates", "globos", "quince"]
+        categories: ["rosas-rojas", "cajas", "chocolates", "globos", "quince", "precio-medio"]
     },
     {
         id: 6,
         name: "Letra Floral Gigante para Quince Años",
-        price: null,
+        price: 250000,
         image: "assets/foto6.webp",
         description: "Letra de gran formato forrada por completo en nube blanca y claveles rosados, montada sobre base de madera y decorada con mariposas y topper de «15». La armamos con la inicial que nos pidas y en el tono que combine con la decoración de la fiesta. Ideal para la mesa principal o la entrada del salón.",
-        categories: ["mix", "rosas-rosadas", "quince"]
+        categories: ["mix", "rosas-rosadas", "quince", "precio-alto"]
     },
     {
         id: 7,
         name: "Bouquet Blanco con Rosas Fucsia y Mariposa",
-        price: null,
+        price: 80000,
         image: "assets/foto7.webp",
         description: "Media docena de rosas fucsia de botón grande sobre un colchón de nube blanca, envueltas en papel blanco satinado con cintas color durazno, lazo fucsia y una mariposa decorativa. Un ramo pulcro y femenino, perfecto para un cumpleaños o un «gracias» que se quiere ver bien.",
-        categories: ["rosas-rosadas"]
+        categories: ["rosas-rosadas", "precio-bajo"]
     },
     {
         id: 8,
@@ -239,10 +239,10 @@ const products = [
     {
         id: 15,
         name: "Arreglo Bicolor de Rosas Rosadas y Blancas",
-        price: null,
+        price: 200000,
         image: "assets/foto15.webp",
         description: "Base de mimbre dividida en dos: un costado de rosas rosadas y otro de rosas blancas, todas en botón cerrado y perfectamente alineadas, con follaje verde alrededor y lazo rosado. Lo remata un globo corazón en oro rosa. Delicado, moderno y muy fotogénico.",
-        categories: ["rosas-rosadas", "globos"]
+        categories: ["rosas-rosadas", "globos", "precio-medio"]
     },
     {
         id: 16,
@@ -291,6 +291,30 @@ const products = [
         image: "assets/foto21.webp",
         description: "Tres gerberas en tono durazno con astromelias blancas y nube, envueltas en papel crema con un generoso lazo dorado, más un globo corazón dorado de «Feliz Aniversario». Un detalle cálido y de buen precio para celebrar sin exagerar.",
         categories: ["mix", "globos", "precio-bajo"]
+    },
+    {
+        id: 22,
+        name: "Corona Fúnebre de Margaritas Blancas y Rosas Rojas",
+        price: 250000,
+        image: "assets/foto22.webp",
+        description: "Corona circular montada en trípode, tejida por completo en margaritas blancas y rematada en la parte superior con rosas rojas, solidago amarillo y follaje verde. Lleva lazo de raso blanco y tarjeta para la dedicatoria de la familia. El homenaje más tradicional para sala de velación, iglesia o cementerio.",
+        categories: ["funebres", "rosas-rojas", "mix", "precio-alto"]
+    },
+    {
+        id: 23,
+        name: "Arreglo Fúnebre de Rosas Blancas en Base de Madera",
+        price: 150000,
+        image: "assets/foto23.webp",
+        description: "Composición en abanico armada con dos docenas de rosas blancas, nube, solidago y hojas de palma sobre una base de madera natural, con un gran lazo de raso blanco al centro. Sobrio y luminoso: la opción indicada para acompañar el cofre o enviar directamente a la sala de velación.",
+        categories: ["funebres", "mix", "precio-medio"]
+    },
+    {
+        id: 24,
+        name: "Corona Fúnebre Multicolor con Cinta Morada",
+        price: 200000,
+        image: "assets/foto24.webp",
+        description: "Corona de gran formato con base de margaritas blancas y un centro de rosas rojas, amarillas y naranjas con solidago y follaje verde abundante. Cruza la pieza una cinta morada que podemos imprimir con la dedicatoria. Una despedida más cálida y colorida que la corona blanca clásica.",
+        categories: ["funebres", "rosas-rojas", "mix", "precio-medio"]
     }
 ];
 
