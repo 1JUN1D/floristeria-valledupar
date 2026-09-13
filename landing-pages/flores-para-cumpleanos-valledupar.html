@@ -873,6 +873,155 @@
       .catalog-intro .section-subtitle { color: var(--catalog-ink); }
       .catalog-intro .section-subtitle { color: var(--catalog-gray); max-width: 720px; margin: 0 auto; }
     </style>
+
+    <!-- ===== Colección Flores Amarillas · estilos ===== -->
+    <style>
+    :root{
+      --ll-am-1:#FFC93C; --ll-am-2:#F5A623; --ll-am-3:#E2860B;
+      --ll-am-deep:#8A5A05; --ll-am-ink:#2A1E06;
+      --ll-am-cream:#FFF8E6; --ll-am-line:rgba(138,90,5,.18);
+    }
+
+    /* ---------- Flyer flotante ---------- */
+    #ll-flyer{position:fixed;inset:0;z-index:99999;display:none;
+      align-items:center;justify-content:center;padding:20px;
+      background:rgba(24,17,4,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+      opacity:0;transition:opacity .35s ease}
+    #ll-flyer.is-open{display:flex}
+    #ll-flyer.is-visible{opacity:1}
+    .ll-flyer-card{position:relative;width:min(860px,100%);max-height:92vh;overflow:hidden;
+      display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);
+      border-radius:22px;background:var(--ll-am-cream);
+      box-shadow:0 40px 90px rgba(0,0,0,.45);
+      transform:translateY(26px) scale(.97);transition:transform .45s cubic-bezier(.2,.9,.25,1)}
+    #ll-flyer.is-visible .ll-flyer-card{transform:none}
+    .ll-flyer-media{position:relative;min-height:260px;background:#EFD9A0}
+    .ll-flyer-media img{width:100%;height:100%;object-fit:cover;display:block}
+    .ll-flyer-media::after{content:'';position:absolute;inset:0;
+      background:linear-gradient(105deg,rgba(0,0,0,.28),transparent 60%)}
+    .ll-flyer-body{padding:34px 34px 28px;display:flex;flex-direction:column;justify-content:center;gap:14px;
+      background:
+        radial-gradient(420px 200px at 110% -10%,rgba(255,201,60,.45),transparent 65%),
+        linear-gradient(175deg,#FFFDF6 0%,#FFF3D4 100%)}
+    .ll-flyer-kicker{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;
+      padding:6px 13px;border-radius:999px;background:var(--ll-am-ink);color:#FFD75E;
+      font:600 .68rem/1 'Poppins',system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+    .ll-flyer-kicker span{width:6px;height:6px;border-radius:50%;background:#FFD75E;
+      animation:ll-pulse 1.6s ease-in-out infinite}
+    @keyframes ll-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.6)}}
+    .ll-flyer-body h2{margin:0;font-family:'Playfair Display',Georgia,serif;
+      font-size:clamp(1.7rem,3.6vw,2.5rem);line-height:1.08;color:var(--ll-am-ink);font-weight:700}
+    .ll-flyer-body h2 em{font-style:italic;color:var(--ll-am-3)}
+    .ll-flyer-body p{margin:0;font:400 .95rem/1.6 'Poppins',system-ui,sans-serif;color:#5A4A22}
+    .ll-flyer-price{font:600 .9rem/1 'Poppins',system-ui,sans-serif;color:var(--ll-am-deep)}
+    .ll-flyer-price b{font-size:1.45rem;font-family:'Playfair Display',Georgia,serif}
+    .ll-flyer-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+    .ll-flyer-actions a{display:inline-flex;align-items:center;gap:8px;padding:13px 20px;border-radius:999px;
+      font:600 .85rem/1 'Poppins',system-ui,sans-serif;text-decoration:none;transition:transform .2s,box-shadow .2s}
+    .ll-flyer-actions a:hover{transform:translateY(-2px)}
+    .ll-btn-solid{background:linear-gradient(135deg,var(--ll-am-1),var(--ll-am-3));color:#2A1E06;
+      box-shadow:0 12px 26px rgba(226,134,11,.38)}
+    .ll-btn-wa{background:#25D366;color:#fff;box-shadow:0 12px 26px rgba(37,211,102,.32)}
+    .ll-flyer-actions svg{width:17px;height:17px;flex:none}
+    .ll-flyer-close{position:absolute;top:12px;right:12px;z-index:3;width:38px;height:38px;border:0;
+      border-radius:50%;cursor:pointer;background:rgba(42,30,6,.72);color:#fff;font-size:1.4rem;line-height:1;
+      display:flex;align-items:center;justify-content:center;transition:background .2s}
+    .ll-flyer-close:hover{background:#2A1E06}
+    .ll-flyer-timer{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(138,90,5,.16)}
+    .ll-flyer-timer i{display:block;height:100%;width:100%;transform-origin:left center;
+      background:linear-gradient(90deg,var(--ll-am-1),var(--ll-am-3))}
+    #ll-flyer.is-visible .ll-flyer-timer i{animation:ll-count 5s linear forwards}
+    @keyframes ll-count{from{transform:scaleX(1)}to{transform:scaleX(0)}}
+    .ll-flyer-note{font:400 .7rem/1.4 'Poppins',system-ui,sans-serif;color:#8A7742;margin-top:2px}
+    @media (max-width:760px){
+      .ll-flyer-card{grid-template-columns:1fr;max-height:88vh;overflow-y:auto}
+      .ll-flyer-media{min-height:180px;max-height:34vh}
+      .ll-flyer-body{padding:24px 22px 26px}
+    }
+    @media (prefers-reduced-motion:reduce){
+      #ll-flyer,.ll-flyer-card{transition:none}
+      .ll-flyer-kicker span{animation:none}
+    }
+
+    /* ---------- Sección destacada ---------- */
+    .ll-amarillas{position:relative;overflow:hidden;padding:70px 0 64px;scroll-margin-top:190px;
+      background:
+        radial-gradient(1100px 460px at 50% -180px,rgba(255,201,60,.55),transparent 68%),
+        radial-gradient(700px 340px at 92% 118%,rgba(226,134,11,.18),transparent 62%),
+        linear-gradient(168deg,#FFFDF7 0%,#FFF4DA 55%,#FFE9B8 100%)}
+    .ll-amarillas::before{content:'';position:absolute;inset:0;pointer-events:none;
+      background:repeating-conic-gradient(from 0deg at 50% -14%,
+        rgba(255,255,255,.5) 0deg 3deg,transparent 3deg 12deg);
+      opacity:.5;mask-image:radial-gradient(560px 340px at 50% -10%,#000,transparent 72%);
+      -webkit-mask-image:radial-gradient(560px 340px at 50% -10%,#000,transparent 72%)}
+    .ll-amarillas::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;
+      background:linear-gradient(90deg,transparent,var(--ll-am-3),transparent);opacity:.45}
+    .ll-amarillas .container{position:relative;z-index:2}
+    .ll-am-head{text-align:center;max-width:720px;margin:0 auto 42px}
+    .ll-am-badge{display:inline-flex;align-items:center;gap:9px;padding:8px 17px;border-radius:999px;
+      background:var(--ll-am-ink);color:#FFD75E;
+      font:600 .68rem/1 'Poppins',system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;
+      box-shadow:0 10px 24px rgba(42,30,6,.22)}
+    .ll-am-badge span{width:6px;height:6px;border-radius:50%;background:#FFD75E;
+      animation:ll-pulse 1.6s ease-in-out infinite}
+    .ll-am-head h2{margin:18px 0 0;font-family:'Playfair Display',Georgia,serif;font-weight:700;
+      font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.06;color:var(--ll-am-ink)}
+    .ll-am-head h2 em{font-style:italic;color:var(--ll-am-3)}
+    .ll-am-rule{width:76px;height:2px;margin:18px auto;border-radius:2px;
+      background:linear-gradient(90deg,var(--ll-am-1),var(--ll-am-3))}
+    .ll-am-head p{margin:0;font:400 1rem/1.7 'Poppins',system-ui,sans-serif;color:#6B5722}
+
+    .ll-am-grid{display:grid;gap:24px;
+      grid-template-columns:repeat(auto-fit,minmax(248px,1fr))}
+    @media (min-width:1120px){.ll-am-grid{grid-template-columns:repeat(4,1fr)}}
+
+    .ll-am-card{position:relative;display:flex;flex-direction:column;overflow:hidden;
+      border-radius:18px;background:#fff;border:1px solid var(--ll-am-line);
+      box-shadow:0 14px 34px rgba(138,90,5,.13);
+      transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+    .ll-am-card:hover{transform:translateY(-7px);border-color:var(--ll-am-2);
+      box-shadow:0 26px 56px rgba(138,90,5,.26)}
+    .ll-am-card-media{position:relative;aspect-ratio:1/1;overflow:hidden;background:#F6EAC9;cursor:zoom-in}
+    .ll-am-card-media img{width:100%;height:100%;object-fit:cover;display:block;
+      transition:transform .6s cubic-bezier(.2,.8,.25,1)}
+    .ll-am-card:hover .ll-am-card-media img{transform:scale(1.07)}
+    .ll-am-tag{position:absolute;top:12px;left:12px;z-index:2;padding:6px 12px;border-radius:999px;
+      background:linear-gradient(135deg,var(--ll-am-1),var(--ll-am-3));color:#2A1E06;
+      font:600 .62rem/1 'Poppins',system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;
+      box-shadow:0 6px 16px rgba(226,134,11,.4)}
+    .ll-am-ref{position:absolute;top:12px;right:12px;z-index:2;padding:5px 10px;border-radius:6px;
+      background:rgba(255,255,255,.92);color:#6B5722;
+      font:600 .62rem/1 'Poppins',system-ui,sans-serif;letter-spacing:.1em}
+    .ll-am-card-body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
+    .ll-am-card-body h3{margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:600;
+      font-size:1.06rem;line-height:1.28;color:var(--ll-am-ink)}
+    .ll-am-card-body p{margin:0;font:400 .82rem/1.6 'Poppins',system-ui,sans-serif;color:#6B6357;
+      display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+    .ll-am-card-foot{margin-top:auto;padding-top:12px;border-top:1px solid var(--ll-am-line);
+      display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .ll-am-price small{display:block;font:500 .62rem/1 'Poppins',system-ui,sans-serif;
+      letter-spacing:.14em;text-transform:uppercase;color:#9A8757}
+    .ll-am-price b{font-family:'Playfair Display',Georgia,serif;font-size:1.3rem;color:var(--ll-am-deep)}
+    .ll-am-buy{display:inline-flex;align-items:center;gap:7px;padding:10px 15px;border-radius:999px;
+      background:#25D366;color:#fff;text-decoration:none;
+      font:600 .76rem/1 'Poppins',system-ui,sans-serif;transition:transform .2s,box-shadow .2s}
+    .ll-am-buy:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(37,211,102,.34)}
+    .ll-am-buy svg{width:15px;height:15px;flex:none}
+    .ll-am-foot{margin-top:36px;text-align:center}
+    .ll-am-foot a{display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:999px;
+      background:var(--ll-am-ink);color:#FFD75E;text-decoration:none;
+      font:600 .84rem/1 'Poppins',system-ui,sans-serif;transition:transform .2s,box-shadow .2s}
+    .ll-am-foot a:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(42,30,6,.3)}
+    .ll-am-foot a svg{width:18px;height:18px;flex:none}
+
+    /* Filtro destacado */
+    .filter-btn.filter-btn-amarillas{
+      background:linear-gradient(135deg,var(--ll-am-1),var(--ll-am-3));
+      border-color:var(--ll-am-3);color:#2A1E06;font-weight:600}
+    .filter-btn.filter-btn-amarillas:hover,
+    .filter-btn.filter-btn-amarillas.active{
+      background:var(--ll-am-ink);border-color:var(--ll-am-ink);color:#FFD75E}
+    </style>
 </head>
 <body>
 
@@ -909,6 +1058,23 @@
         </div>
     </section>
 
+
+    <!-- ===== Colección destacada · Flores Amarillas ===== -->
+    <section class="ll-amarillas" id="flores-amarillas">
+        <div class="container">
+            <div class="ll-am-head">
+                <div class="ll-am-badge"><span></span>Colección nueva · 21 de septiembre</div>
+                <h2>Flores <em>Amarillas</em></h2>
+                <div class="ll-am-rule"></div>
+                <p>Girasoles, margaritas y pompones amarillos armados el mismo día del pedido. La tradición dice que las flores amarillas de septiembre traen suerte, prosperidad y buenos comienzos: estas son las nuestras.</p>
+            </div>
+            <div class="ll-am-grid" id="ll-am-grid"></div>
+            <div class="ll-am-foot">
+                <a href="https://wa.me/573004272875?text=Hola%2C%20quiero%20pedir%20flores%20amarillas%20para%20entrega%20en%20Valledupar.%20%C2%BFQu%C3%A9%20tienen%20disponible%20hoy%3F" target="_blank" rel="noopener" onclick="if(typeof trackConversion==='function')trackConversion()"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.18-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.03 1.02-1.03 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 01-1.51-5.26C2.16 6.45 6.6 2.02 12.05 2.02c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.69 1.45c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.41Z"/></svg> Pedir una flor amarilla ahora</a>
+            </div>
+        </div>
+    </section>
+
     <section class="catalog-filters">
         <div class="container">
             <div class="catalog-search">
@@ -920,6 +1086,7 @@
                 <button class="filter-btn" data-filter="rosas-rojas">Rosas Rojas</button>
                 <button class="filter-btn" data-filter="rosas-rosadas">Rosas Rosadas</button>
                 <button class="filter-btn" data-filter="girasoles">Girasoles</button>
+                <button class="filter-btn filter-btn-amarillas" data-filter="amarillas">Flores Amarillas</button>
                 <button class="filter-btn" data-filter="mix">Ramos Mix</button>
                 <button class="filter-btn" data-filter="chocolates">Con Chocolates</button>
                 <button class="filter-btn" data-filter="cajas">Cajas y Cofres</button>
@@ -934,7 +1101,7 @@
 
     <div class="results-counter">
         <div class="container">
-            Mostrando <strong id="results-count">21</strong> productos
+            Mostrando <strong id="results-count">29</strong> productos
         </div>
     </div>
 
@@ -1352,6 +1519,70 @@
         image: "/assets/foto21.webp",
         description: "Tres gerberas en tono durazno con astromelias blancas y nube, envueltas en papel crema con un generoso lazo dorado, más un globo corazón dorado de «Feliz Aniversario». Un detalle cálido y de buen precio para celebrar sin exagerar.",
         categories: ["mix", "globos", "precio-bajo"]
+    },
+    {
+        id: 25,
+        name: "Ramo de Girasoles con Eucalipto en Papel Kraft",
+        price: 163000,
+        image: "/assets/foto25.webp",
+        description: "Cuatro girasoles abiertos rodeados de margaritas blancas y ramas de eucalipto, envueltos en papel kraft con corazón lila y lazo de raso crema. Llega con tarjeta en blanco para que escribas lo que quieras. El ramo amarillo más pedido: alegra un escritorio, una sala o una mañana cualquiera.",
+        categories: ["amarillas", "girasoles", "mix", "precio-medio"]
+    },
+    {
+        id: 26,
+        name: "Sombrerera Blanca Desbordada de Girasoles",
+        price: 213000,
+        image: "/assets/foto26.webp",
+        description: "Más de una docena de girasoles sembrados en cúpula dentro de una sombrerera blanca de tela, con brotes de eucalipto asomando entre las flores. No necesita florero ni agua el primer día: llega lista para poner sobre la mesa. Un regalo de gran formato para cumpleaños, aperturas o para desear pronta mejoría.",
+        categories: ["amarillas", "girasoles", "cajas", "precio-medio"]
+    },
+    {
+        id: 27,
+        name: "Canasta de Girasol con Claveles Rosados y Margaritas",
+        price: 150000,
+        image: "/assets/foto27.webp",
+        description: "Canasta de mimbre con asa, armada alrededor de un girasol abierto al centro, con claveles rosados, margaritas blancas y amarillas, pompones y helecho verde. Va con moño de raso rosado en el asa y una cinta ancha que podemos imprimir con la dedicatoria o cambiar por el color que prefieras. Cálida, colorida y con mucha flor.",
+        categories: ["amarillas", "mix", "rosas-rosadas", "precio-medio"]
+    },
+    {
+        id: 28,
+        name: "Bouquet de Lisianthus Blancos y Rosados",
+        price: 125000,
+        image: "/assets/foto28.webp",
+        description: "Ramo de mano en tonos blanco, rosa pastel y verde: lisianthus abiertos y en botón, nube, eucalipto y helecho, con el mango forrado en cinta de yute. Delicado y sin estridencias, funciona igual como ramo de novia, para una dama de honor o para un grado. Lo armamos del tamaño que necesites.",
+        categories: ["mix", "rosas-rosadas", "precio-medio"]
+    },
+    {
+        id: 29,
+        name: "Ramo de Margaritas Amarillas con Nube",
+        price: 113000,
+        image: "/assets/foto29.webp",
+        description: "Docena y media de margaritas amarillas repartidas en abanico sobre un fondo de nube blanca, envueltas en papel blanco satinado con filos dorados y rematadas con lazo amarillo. Es el ramo que más se pide para el 21 de septiembre: mucho color por poco dinero.",
+        categories: ["amarillas", "mix", "precio-bajo"]
+    },
+    {
+        id: 30,
+        name: "Girasol Solitario con Astromelias y Globo",
+        price: 100000,
+        image: "/assets/foto30.webp",
+        description: "Un girasol grande al centro, acompañado de astromelias blancas, eucalipto y follaje verde, envuelto en papel crema con lazo de raso. Lo corona un globo corazón metalizado cuyo mensaje escogemos contigo, así que sirve igual para un cumpleaños, el Día de la Mujer o un simple «gracias». El detalle amarillo más económico del catálogo.",
+        categories: ["amarillas", "girasoles", "globos", "precio-bajo"]
+    },
+    {
+        id: 31,
+        name: "Ramo Cono «Para Ti» de Pompones Amarillos",
+        price: 88000,
+        image: "/assets/foto31.webp",
+        description: "Pompones amarillos de botón grande montados dentro de un cono de papel negro mate, con las palabras «Para Ti» escritas a mano en dorado y un lazo de cinta metalizada. El contraste del negro con el amarillo lo hace ver mucho más caro de lo que cuesta. Nuestra opción más económica para el 21 de septiembre.",
+        categories: ["amarillas", "mix", "precio-bajo"]
+    },
+    {
+        id: 36,
+        name: "Ramo de Girasoles con Ferrero Rocher",
+        price: 188000,
+        image: "/assets/foto36.webp",
+        description: "Cinco girasoles abiertos con solidago amarillo y follaje verde, envueltos en papel negro y kraft con lazo rojo, y tres Ferrero Rocher acomodados en el corazón de las flores. Va con tarjeta ilustrada para la dedicatoria. Flores y chocolate en el mismo regalo, con una presentación que se roba la foto.",
+        categories: ["amarillas", "girasoles", "chocolates", "precio-medio"]
     }
 ];
 
@@ -1545,5 +1776,163 @@
         // Render inicial
         renderProducts();
     </script>
+
+    <!-- ===== Flyer flotante · Flores Amarillas (cierre automático a los 5 s) ===== -->
+    <div id="ll-flyer" role="dialog" aria-modal="true" aria-labelledby="ll-flyer-title" aria-hidden="true">
+      <div class="ll-flyer-card">
+        <button type="button" class="ll-flyer-close" id="ll-flyer-close" aria-label="Cerrar aviso">&times;</button>
+        <div class="ll-flyer-media">
+          <img src="/assets/foto26.webp" alt="Girasoles y flores amarillas de Floristería Leonela TT en Valledupar" loading="eager" width="800" height="800">
+        </div>
+        <div class="ll-flyer-body">
+          <div class="ll-flyer-kicker"><span></span>Nuevo · 21 de septiembre</div>
+          <h2 id="ll-flyer-title">Llegaron las<br><em>Flores Amarillas</em></h2>
+          <p>Siete diseños nuevos en girasoles, margaritas y pompones amarillos, listos para entregar el mismo día en todo Valledupar. Sepáralos antes de que se acaben.</p>
+          <div class="ll-flyer-price">Desde <b>$88.000</b></div>
+          <div class="ll-flyer-actions">
+            <a href="#flores-amarillas" class="ll-btn-solid" id="ll-flyer-go">Ver la colección</a>
+            <a href="https://wa.me/573004272875?text=Hola%2C%20vi%20la%20colecci%C3%B3n%20de%20Flores%20Amarillas%20en%20la%20p%C3%A1gina%20y%20quiero%20pedir%20una.%20%C2%BFMe%20ayudan%3F" class="ll-btn-wa" target="_blank" rel="noopener" onclick="if(typeof trackConversion==='function')trackConversion()"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.18-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.03 1.02-1.03 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 01-1.51-5.26C2.16 6.45 6.6 2.02 12.05 2.02c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.69 1.45c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.41Z"/></svg> Pedir por WhatsApp</a>
+          </div>
+          <div class="ll-flyer-note">Este aviso se cierra solo en 5 segundos.</div>
+        </div>
+        <div class="ll-flyer-timer"><i></i></div>
+      </div>
+    </div>
+
+    <!-- ===== Colección Flores Amarillas · lógica ===== -->
+    <script>
+    (function () {
+        var AMARILLAS_IDS = [25, 26, 27, 29, 30, 31, 36];
+        var WA_NUM = '573004272875';
+
+        function money(n) {
+            if (typeof formatPrice === 'function') return formatPrice(n);
+            return '$' + Number(n).toLocaleString('es-CO');
+        }
+        function ref(p) {
+            if (typeof productCode === 'function') return productCode(p);
+            return String(p.id).padStart(3, '0');
+        }
+        function photoUrl(p) {
+            if (typeof productPhotoUrl === 'function') return productPhotoUrl(p);
+            return 'http://floristeriavalledupar.dondeseria.com/' + String(p.image).replace(/^\//, '');
+        }
+        var WA_ICON = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.18-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.03 1.02-1.03 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 01-1.51-5.26C2.16 6.45 6.6 2.02 12.05 2.02c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.69 1.45c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.41Z"/></svg>';
+
+        /* ---------- Render de la colección destacada ---------- */
+        function renderAmarillas() {
+            var grid = document.getElementById('ll-am-grid');
+            if (!grid || typeof products === 'undefined') return;
+            var list = AMARILLAS_IDS
+                .map(function (id) {
+                    for (var i = 0; i < products.length; i++) {
+                        if (products[i].id === id) return products[i];
+                    }
+                    return null;
+                })
+                .filter(Boolean)
+                .sort(function (a, b) { return a.price - b.price; });
+
+            grid.innerHTML = list.map(function (p) {
+                var msg = 'Hola, me interesa el producto: ' + p.name + ' (Ref. ' + ref(p) + ') - ' +
+                          money(p.price) + ' | Foto: ' + photoUrl(p);
+                return '' +
+                '<article class="ll-am-card">' +
+                  '<div class="ll-am-card-media" data-lb-img="' + p.image + '" data-lb-name="' + p.name.replace(/"/g, '&quot;') + '" data-lb-price="' + money(p.price) + '">' +
+                    '<span class="ll-am-tag">Amarillas</span>' +
+                    '<span class="ll-am-ref">Ref. ' + ref(p) + '</span>' +
+                    '<img src="' + p.image + '" alt="' + p.name.replace(/"/g, '&quot;') + ' - Floristería Leonela TT Valledupar" loading="lazy" width="800" height="800">' +
+                  '</div>' +
+                  '<div class="ll-am-card-body">' +
+                    '<h3>' + p.name + '</h3>' +
+                    '<p>' + p.description + '</p>' +
+                    '<div class="ll-am-card-foot">' +
+                      '<div class="ll-am-price"><small>Desde</small><b>' + money(p.price) + '</b></div>' +
+                      '<a class="ll-am-buy" href="https://wa.me/' + WA_NUM + '?text=' + encodeURIComponent(msg) + '" target="_blank" rel="noopener" onclick="if(typeof trackConversion===\'function\')trackConversion()">' + WA_ICON + ' Pedir</a>' +
+                    '</div>' +
+                  '</div>' +
+                '</article>';
+            }).join('');
+
+            /* Abre el lightbox del catálogo si existe */
+            grid.querySelectorAll('.ll-am-card-media').forEach(function (el) {
+                el.addEventListener('click', function () {
+                    if (typeof openLightbox === 'function') {
+                        openLightbox(el.dataset.lbImg, el.dataset.lbName, el.dataset.lbPrice);
+                    }
+                });
+            });
+        }
+
+        /* ---------- Flyer flotante ---------- */
+        var FLYER_KEY = 'll_flyer_amarillas_v1';
+        var AUTO_CLOSE_MS = 5000;
+
+        function seen() {
+            try { return sessionStorage.getItem(FLYER_KEY) === '1'; } catch (e) { return false; }
+        }
+        function markSeen() {
+            try { sessionStorage.setItem(FLYER_KEY, '1'); } catch (e) {}
+        }
+
+        function initFlyer() {
+            var flyer = document.getElementById('ll-flyer');
+            if (!flyer || seen()) return;
+
+            var timer = null;
+            var closed = false;
+
+            function close() {
+                if (closed) return;
+                closed = true;
+                clearTimeout(timer);
+                flyer.classList.remove('is-visible');
+                flyer.setAttribute('aria-hidden', 'true');
+                setTimeout(function () {
+                    flyer.classList.remove('is-open');
+                    document.body.style.overflow = '';
+                }, 360);
+                markSeen();
+            }
+
+            function open() {
+                flyer.classList.add('is-open');
+                flyer.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                requestAnimationFrame(function () {
+                    requestAnimationFrame(function () { flyer.classList.add('is-visible'); });
+                });
+                timer = setTimeout(close, AUTO_CLOSE_MS);
+            }
+
+            document.getElementById('ll-flyer-close').addEventListener('click', close);
+            flyer.addEventListener('click', function (e) { if (e.target === flyer) close(); });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+
+            var go = document.getElementById('ll-flyer-go');
+            if (go) {
+                go.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    close();
+                    setTimeout(function () {
+                        var s = document.getElementById('flores-amarillas');
+                        if (s) s.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 380);
+                });
+            }
+
+            setTimeout(open, 700);
+        }
+
+        function boot() { renderAmarillas(); initFlyer(); }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', boot);
+        } else {
+            boot();
+        }
+    })();
+    </script>
+
 </body>
 </html>
